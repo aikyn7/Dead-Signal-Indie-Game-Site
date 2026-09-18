@@ -1,0 +1,355 @@
+body {
+    background-color: #0a0a0a;
+    color: #c8c8c8;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 70%);
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: #111111;
+    border: 1px solid #222;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #330000;
+}
+
+.nav-menu a { color: #888; text-decoration: none; font-size: 18px; font-weight: bold; transition: color 0.2s; }
+.nav-menu a:hover { color: #ff0000; }
+.nav-menu a.active { color: #aa0000; text-shadow: 0 0 5px #aa0000; }
+
+
+h1, h2 { color: #ffffff; text-transform: uppercase; font-weight: normal; }
+h1 { text-align: center; font-size: 28px; margin-bottom: 5px; }
+.subtitle { text-align: center; color: #888; font-style: italic; margin-top: 0; margin-bottom: 30px; }       
+
+p {
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
+
+
+/*devblog.html*/
+.dev-box {
+    background: #151515;
+    border: 1px solid #330000;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.disclaimer {
+    color: #ff3333;
+    font-weight: bold;
+    border-left: 3px solid #ff0000;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.credits-list {
+    list-style-type: square;
+    padding-left: 20px;
+    color: #aaa;
+    font-size: 16px;
+}
+
+.credits-list span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.github-link {
+    display: inline-block;
+    background-color: #aa0000;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    border: 1px solid #ff0000;
+    transition: all 0.2s;
+}
+
+.github-link:hover {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+
+/*guide.html*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: #151515;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #330000;
+}
+
+th {
+    background-color: #1a0000;
+    color: #ff3333;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #111111;
+}
+
+tbody tr:hover {
+    background-color: #220000;
+    transition: background-color 0.3s;
+}
+
+.threat-fatal { color: #ff0000; font-weight: bold; }
+.threat-high { color: #ff8800; }
+.threat-medium { color: #aaaa00; }
+
+/* index.html*/
+
+.banner {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #330000;
+}
+
+.download-section {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.download-btn {
+    background-color: #aa0000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #ff0000;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.download-btn:hover {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 10px #ff0000;
+    cursor: pointer;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.media-grid iframe, .media-grid img, .media-grid video {
+    width: 100%;
+    height: auto;
+    border: 1px solid #333;
+    background-color: #000;
+}
+
+.trailer {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+}
+
+.screenshot:hover {
+    border-color: #aa0000;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.tags {
+    color: #888;
+    font-size: 13px;
+}
+.tags span {
+    background: #222;
+    padding: 3px 8px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+/*story.html*/
+
+.lore-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    background: #151515;
+    border: 1px solid #222;
+    padding: 20px;
+}
+
+.lore-block:nth-child(even) { flex-direction: row-reverse; }
+
+.lore-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.lore-text ul {
+    padding-left: 20px;
+    color: #aaa;
+}
+
+.lore-image {
+    flex: 1;
+    max-width: 50%;
+    min-width: 0;
+}
+        
+.lore-image img { 
+    width: 100%;
+    height: auto;
+    display: block; 
+    border: 1px solid #440000;
+}
+
+.creepy-quote {
+    color: #ff3333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-left: 3px solid #ff0000;
+    background: rgba(255, 0, 0, 0.05);
+    margin: 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.portrait-image {
+    flex: 1;
+    max-width: 50%;
+    min-width: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portrait-image img {
+    width: 250px !important; 
+    height: 250px !important; 
+    max-width: 100%;
+    object-fit: cover !important; 
+    border-radius: 50% !important;
+    border: 3px solid #aa0000;
+    box-shadow: 0 0 20px rgba(170, 0, 0, 0.4);
+    display: block;
+}
+
+
+
+
+/* Suggestions form */
+.suggest-form {
+    margin-top: 10px;
+}
+
+.suggest-form label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.suggest-form input[type="text"],
+.suggest-form input[type="email"],
+.suggest-form select,
+.suggest-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #0a0a0a;
+    color: #c8c8c8;
+    border: 1px solid #330000;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    outline: none;
+}
+
+.suggest-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.suggest-form input:focus,
+.suggest-form select:focus,
+.suggest-form textarea:focus {
+    border-color: #aa0000;
+    box-shadow: 0 0 6px rgba(170, 0, 0, 0.5);
+}
+
+.suggest-form input::placeholder,
+.suggest-form textarea::placeholder {
+    color: #555;
+}
+
+.suggest-form button {
+    background-color: transparent;
+    color: #aa0000;
+    border: 1px solid #aa0000;
+    padding: 10px 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.suggest-form button:hover {
+    background-color: #aa0000;
+    color: #ffffff;
+}
+
+.form-hint {
+    color: #666;
+    font-size: 12px;
+    margin-top: 8px;
+}
