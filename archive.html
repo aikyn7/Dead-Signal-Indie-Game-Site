@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAD SIGNAL - Archives (Flexbox & Grid Layout)</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="grid-layout">
+        
+        <header class="layout-header">
+            <div class="flex-navbar">
+                <div class="logo">DEAD SIGNAL</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Main</a></li>
+                    <li><a href="story.html">Lore</a></li>
+                    <li><a href="guide.html">Guide</a></li>
+                    <li><a href="archive.html" class="active">Archives</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <aside class="layout-sidebar">
+            <h3>Database</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#">Classified Files</a></li>
+                <li><a href="#">Audio Logs</a></li>
+                <li><a href="#">Incident Reports</a></li>
+                <li><a href="#">Subject Profiles</a></li>
+            </ul>
+        </aside>
+
+        <main class="layout-main">
+            
+            <h2>Latest Incident Reports</h2>
+            <section class="cards-container">
+                <div class="card">
+                    <img src="Game Screenshots/s8.jpeg" alt="Corridor Encounter">
+                    <h3>Sector C: Corridors</h3>
+                    <p>The entity was last spotted in the underground maintenance tunnels. Do not attempt to engage if unarmed. Flashlights seem to provoke it.</p>
+                    <button class="report-btn" data-title="INCIDENT REPORT — 17.10.1998" data-text="Two personnel entered Sector C and failed to return. Security footage shows the entity standing motionless in the corridor. All attempts to communicate failed. The area is now sealed.">Read Report</button>
+                </div>
+                <div class="card">
+                    <img src="Game Screenshots/s5.jpeg" alt="The Laboratory">
+                    <h3>Underground Lab</h3>
+                    <p>Specimen containers have been breached. Organic matter is corrupting the equipment. Evacuation of remaining personnel is impossible.</p>
+                    <button class="report-btn" data-title="INCIDENT REPORT — 17.10.1998" data-text="Specimen containment has failed. Organic growth was found throughout the laboratory. Three researchers are missing. Remaining personnel have been ordered to evacuate immediately.">Read Report</button>
+                </div>
+                <div class="card">
+                    <img src="Game Screenshots/s9.jpeg" alt="Forest Entity">
+                    <h3>Forest Zone</h3>
+                    <p>Outside the facility, the tall entity patrols the perimeter. It uses the heavy fog to camouflage its unnaturally long limbs.</p>
+                    <button class="report-btn" data-title="INCIDENT REPORT — 18.10.1998" data-text="A large humanoid entity was observed outside the facility. Visibility was reduced by abnormal fog. Two security officers disappeared while investigating the perimeter. No bodies were recovered.">Read Report</button>
+                </div>
+            </section>
+
+            <h2>Visual Evidence Archive</h2>
+            
+            <section class="gallery-container">
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s1.jpeg" alt="Evidence 1">
+                    <div class="gallery-caption">Station 17 Exterior</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s2.jpeg" alt="Evidence 2">
+                    <div class="gallery-caption">Control Room Alpha</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s3.jpeg" alt="Evidence 3">
+                    <div class="gallery-caption">Hospital Wing</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s4.jpeg" alt="Evidence 4">
+                    <div class="gallery-caption">Breached Blast Door</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s5.jpeg" alt="Evidence 5">
+                    <div class="gallery-caption">Bio-Lab Containment</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s6.jpeg" alt="Evidence 6">
+                    <div class="gallery-caption">Blood-stained Tunnels</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s7.jpeg" alt="Evidence 7">
+                    <div class="gallery-caption">The Core Terminal</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s8.jpeg" alt="Evidence 8">
+                    <div class="gallery-caption">Hostile Encounter</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Game Screenshots/s9.jpeg" alt="Evidence 9">
+                    <div class="gallery-caption">The Tall Man (Forest)</div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="layout-footer">
+            <p>DEAD SIGNAL © 2026. Confidential Archive. Web Technologies Assignment.</p>
+        </footer>
+
+    </div>
+
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">TITLE</h3>
+            <p id="modal-text">Text goes here</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("report-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalText = document.getElementById("modal-text");
+        const closeBtn = document.querySelector(".close-btn");
+        const reportButtons = document.querySelectorAll(".report-btn");
+
+        reportButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                modalTitle.innerText = this.getAttribute("data-title");
+                modalText.innerText = this.getAttribute("data-text");
+                modal.style.display = "flex";
+            });
+        });
+
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
