@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <link rel stylesheet href="style.css">
     <head>
         <meta charset="UTF-8">
         <title>task grid</title>
@@ -11,7 +12,6 @@
                 font-family: sans-serif;
             }
 
-            /* 1. Главная сетка макета */
             .dashboard {
                 display: grid;
                 grid-template-columns: 200px 1fr;
@@ -23,26 +23,22 @@
                 min-height: calc(100vh - 30px);
             }
 
-            /* 2. Привязка элементов к областям Grid */
             .header { grid-area: header; }
             .sidebar { grid-area: sidebar; }
             .content { grid-area: content; }
 
-            /* 3. Общие стили блоков */
             .header, .sidebar, .content {
                 background-color: #ffffff;
                 border-radius: 8px;
                 padding: 15px;
             }
 
-            /* 4. Флексбоксы для Шапки */
             .header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
 
-            /* 5. Флексбокс для Сайдбара (исправлен имя класса) */
             .sidebar {
                 display: flex;
                 flex-direction: column;
@@ -55,19 +51,17 @@
                 color: #333;
             }
 
-            /* 6. Сетка для карточек внутри контента */
             .cards-container {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
             }
 
-            /* 7. Стили для отдельных карточек */
             .card {
                 background-color: #f8f9fa;
                 padding: 20px;
                 border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Исправлена опечатка rgba */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
                 text-align: center;
                 font-weight: bold;
             }
