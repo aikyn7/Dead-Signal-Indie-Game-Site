@@ -1,93 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <link rel stylesheet href="style.css">
-    <head>
-        <meta charset="UTF-8">
-        <title>task grid</title>
-        <style>
-            body {
-                background-color: #f0f2f5;
-                margin: 0;
-                padding: 15px;
-                font-family: sans-serif;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task</title>
+    <style>
+        .container{
+            display: flex;
+            flex:1;
+            gap:100vh;        }
+            .third{
+                order: -1;
             }
-
-            .dashboard {
-                display: grid;
-                grid-template-columns: 200px 1fr;
-                grid-template-rows: auto 1fr;
-                grid-template-areas: 
-                    "header header"
-                    "sidebar content";
-                gap: 15px;
-                min-height: calc(100vh - 30px);
-            }
-
-            .header { grid-area: header; }
-            .sidebar { grid-area: sidebar; }
-            .content { grid-area: content; }
-
-            .header, .sidebar, .content {
-                background-color: #ffffff;
-                border-radius: 8px;
-                padding: 15px;
-            }
-
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .sidebar {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
-            .sidebar a {
-                text-decoration: none;
-                color: #333;
-            }
-
-            .cards-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-
-            .card {
-                background-color: #f8f9fa;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
-                text-align: center;
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <div class="dashboard">
-            <header class="header">
-                <div><strong>Логотип</strong></div>
-                <div>Профиль</div>
-            </header>    
-
-            <aside class="sidebar">
-                <a href="#">Главная</a>
-                <a href="#">Курсы</a>
-                <a href="#">Профиль</a>
-            </aside>
-
-            <main class="content">
-                <div class="cards-container">
-                    <div class="card">Прогресс: 75%</div>
-                    <div class="card">Курсы: 4 активных</div>
-                    <div class="card">Баллы: 1200 XP</div>
-                </div>
-            </main>
-        </div>
-    </body>
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "first">1 </div>
+        <div class = "second">1 </div>
+        <div class = "third">1 </div>
+    </div>    
+</body>
 </html>
