@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAD SIGNAL - System Terminal</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-menu">
+            <a href="index.html">[ Main Page ]</a>
+            <a href="story.html">[ Lore & Atmosphere ]</a>
+            <a href="archive.html">[ Archives ]</a>
+            <a href="system.html" class="active">[ System ]</a>
+        </div>
+
+        <div class="terminal-container">
+            <div id="system-clock">Uplink established... Waiting for time sync.</div>
+
+            <h1 style="text-align: left; color: #ff3333;">System Override Terminal</h1>
+            <p style="color: #888; margin-bottom: 30px;">Unauthorized access will trigger lockdown protocols.</p>
+
+            <button class="bg-override-btn" id="bgToggle">Toggle Emergency Lighting</button>
+
+            <h2 style="font-size: 18px; color: #fff; margin-top: 20px;">Classified Database (Accordion)</h2>
+            <div class="accordion">
+                <button class="acc-btn">File 01: What is Signal 0?</button>
+                <div class="acc-content">
+                    <p>Signal 0 is an anomalous frequency discovered in 1997. It does not contain data, but rather reacts to human observation. Continuous exposure leads to auditory hallucinations and paranoia.</p>
+                </div>
+
+                <button class="acc-btn">File 02: Evacuation Protocols</button>
+                <div class="acc-content">
+                    <p>In the event of a containment breach, personnel are instructed to power down all light sources, avoid eye contact with the shadows, and wait for the extraction team. (Note: The extraction team does not exist).</p>
+                </div>
+
+                <button class="acc-btn">File 03: The Tall Man</button>
+                <div class="acc-content">
+                    <p>Subject is approximately 2.5 meters tall. No facial features. Moves silently despite its mass. Do not attempt to engage under any circumstances.</p>
+                </div>
+            </div>
+
+            <h2 style="font-size: 18px; color: #fff; margin-top: 40px;">Secure Access Login (Form Validation)</h2>
+            <form id="secureForm" class="secure-form">
+                <div class="form-group">
+                    <label for="email">Researcher Email (must contain @)</label>
+                    <input type="text" id="email" placeholder="example@station17.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Access Code (min 6 characters)</label>
+                    <input type="password" id="password" placeholder="Enter code">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Access Code</label>
+                    <input type="password" id="confirmPassword" placeholder="Repeat code">
+                </div>
+                <button type="submit" class="submit-btn">Grant Access</button>
+                <div id="formError" class="error-message"></div>
+                <div id="formSuccess" class="success-message">Access Granted. Welcome, Researcher.</div>
+            </form>
+
+            <button class="emergency-btn" id="openPopupBtn">Subscribe to Emergency Alerts</button>
+        </div>
+
+        <footer>
+            <p>DEAD SIGNAL © 2026. JavaScript Assignment.</p>
+            <p style="color: #888; font-size: 11px;">Developed by: <strong>Aikyn Zhumagaliuly</strong> and <strong>Khamitov Adilzhan</strong></p>
+        </footer>
+    </div>
+
+    <div id="subscriptionModal" class="js-modal">
+        <div class="js-modal-content">
+            <span class="js-close-btn" id="closePopupBtn">&times;</span>
+            <h2 style="color: #ff8800; font-size: 20px; margin-top: 0;">Emergency Alerts</h2>
+            <p style="color: #ccc; font-size: 14px;">Enter your radio frequency to receive extraction coordinates.</p>
+            <input type="text" placeholder="Frequency (e.g. 104.5 FM)" style="width: 100%; padding: 10px; background: #000; border: 1px solid #ff8800; color: #fff; margin-bottom: 15px;">
+            <button style="background: #ff8800; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; width: 100%;">Connect</button>
+        </div>
+    </div>
+
+    <script>
+        // JS CODE
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            function updateTime() {
+                const clockElement = document.getElementById('system-clock');
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                clockElement.innerText = "Current System Time: " + now.toLocaleDateString('en-US', options);
+            }
+            setInterval(updateTime, 1000);
+            updateTime();
+
+            const bgBtn = document.getElementById('bgToggle');
+            const body = document.body;
+            const colors = ['#0a0a0a', '#1a0000', '#001a00', '#0a0a1a', '#220000'];
+            let colorIndex = 0;
+
+            bgBtn.addEventListener('click', function() {
+                colorIndex++;
+                if(colorIndex >= colors.length) colorIndex = 0;
+                body.style.backgroundImage = 'none';
+                body.style.backgroundColor = colors[colorIndex];
+            });
+
+            const accButtons = document.querySelectorAll('.acc-btn');
+            accButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            const form = document.getElementById('secureForm');
+            const errorDiv = document.getElementById('formError');
+            const successDiv = document.getElementById('formSuccess');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                errorDiv.style.display = 'none';
+                successDiv.style.display = 'none';
+
+                const email = document.getElementById('email').value.trim();
+                const pass = document.getElementById('password').value.trim();
+                const confirmPass = document.getElementById('confirmPassword').value.trim();
+
+                if (!email || !pass || !confirmPass) {
+                    errorDiv.innerText = "Error: All fields are required.";
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errorDiv.innerText = "Error: Invalid email format.";
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                if (pass.length < 6) {
+                    errorDiv.innerText = "Error: Access Code must be at least 6 characters long.";
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                if (pass !== confirmPass) {
+                    errorDiv.innerText = "Error: Access Codes do not match.";
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                successDiv.style.display = 'block';
+                form.reset();
+            });
+
+            const modal = document.getElementById('subscriptionModal');
+            const openModalBtn = document.getElementById('openPopupBtn');
+            const closeModalBtn = document.getElementById('closePopupBtn');
+
+            openModalBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+            });
+
+            closeModalBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
