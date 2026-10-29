@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAD SIGNAL - Advanced OS</title>
+    <link href="css/terminal-os.css" rel="stylesheet">
+</head>
+<body id="os-body" class="night-mode">
+
+
+    <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+    <audio id="error-sound" src="sounds/error.mp3" preload="auto"></audio>
+
+    <div class="container">
+        <nav class="nav-menu" id="keyboard-nav" tabindex="0">
+            <a href="index.html" class="nav-item">[ Main Page ]</a>
+            <a href="story.html" class="nav-item">[ Lore & Atmosphere ]</a>
+            <a href="archive.html" class="nav-item">[ Archives ]</a>
+            <a href="terminal-os.html" class="nav-item active">[ Advanced OS ]</a>
+        </nav>
+
+        <header class="os-header">
+            <h1 class="glitch-text">STATION 17 OVERRIDE OS</h1>
+            <button id="theme-btn" class="sys-btn">Switch to Day Protocol</button>
+        </header>
+
+        <div class="os-grid">
+            
+            <section class="os-panel">
+                <h2>Database Filter (Switch Statement)</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn sys-btn" data-category="all">All Files</button>
+                    <button class="filter-btn sys-btn" data-category="entity">Entities</button>
+                    <button class="filter-btn sys-btn" data-category="location">Locations</button>
+                </div>
+                <div id="database-output" class="db-output">
+                </div>
+            </section>
+
+            <section class="os-panel">
+                <h2>File Threat Assessment</h2>
+                <p>Rate the danger level of Signal 0:</p>
+                <div class="star-rating" id="threat-rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <p id="rating-feedback" class="feedback-msg">Select a threat level.</p>
+
+                <hr style="border-color: #330000; margin: 20px 0;">
+
+                <h2>Secure Communication</h2>
+                <form id="async-contact-form">
+                    <input type="text" id="agent-name" placeholder="Agent ID" required>
+                    <textarea id="agent-msg" placeholder="Report anomalies here..." required></textarea>
+                    <button type="submit" class="sys-btn alert-btn">Transmit (Async)</button>
+                </form>
+                <div id="async-response" class="feedback-msg" style="display: none;"></div>
+            </section>
+        </div>
+
+        <footer>
+            <p>DEAD SIGNAL © 2026. Advanced JS Assignment.</p>
+        </footer>
+    </div>
+
+    <script src="js/terminal-os.js"></script>
+</body>
+</html>
