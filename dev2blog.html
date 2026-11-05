@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAD SIGNAL - Research Logs (jQuery)</title>
+    <link href="css/dev2blog.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        .log-item { overflow: hidden !important; }
+        .img-placeholder { display: block !important; height: auto !important; min-height: 200px !important; overflow: hidden !important; }
+        .lazy-img { display: block !important; width: 100% !important; max-width: 100% !important; height: auto !important; }
+    </style>
+</head>
+
+<body>
+
+    <div id="scroll-progress-container">
+        <div id="scroll-progress-bar"></div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="index.html">[ Main Page ]</a>
+        <a href="story.html">[ Lore & Atmosphere ]</a>
+        <a href="archive.html">[ Archives ]</a>
+        <a href="system.html">[ System ]</a>
+        <a href="devblog.html" class="active">[ Logs ]</a>
+    </div>
+
+    <div class="devblog-container">
+        <h1 style="color: #ff3333; text-align: center; border-bottom: 2px solid #330000; padding-bottom: 10px;">RESEARCH LOGS & DATA</h1>
+
+        <div class="stats-panel">
+            <div class="stat-box">
+                <span class="counter" data-target="1042">0</span>
+                <span>Anomalies Detected</span>
+            </div>
+            <div class="stat-box">
+                <span class="counter" data-target="87">0</span>
+                <span>Missing Personnel</span>
+            </div>
+            <div class="stat-box">
+                <span class="counter" data-target="17">0</span>
+                <span>Active Sectors</span>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="search-input" placeholder="Search logs (e.g., entity, signal, forest)..." autocomplete="off">
+            <div id="suggestions-box"></div>
+        </div>
+
+        <div id="logs-container">
+            <div class="log-item">
+                <h3>Log #042 - The Forest</h3>
+                <p class="log-text">Security teams reported movement in the forest zone. The entity appears to absorb light. Flashlights are useless. Several personnel went missing.</p>
+                <div class="img-placeholder">
+                    <img data-src="Game Screenshots/s9.jpeg" class="lazy-img" alt="Forest Entity">
+                </div>
+            </div>
+
+            <div class="log-item">
+                <h3>Log #089 - Signal 0</h3>
+                <p class="log-text">We have isolated the frequency. Signal 0 is not a radio wave, it is a biological resonance. It alters the brain chemistry of anyone listening.</p>
+                <div class="img-placeholder">
+                    <img data-src="Game Screenshots/s2.jpeg" class="lazy-img" alt="Control Room">
+                </div>
+            </div>
+
+            <div class="log-item">
+                <h3>Log #112 - Sector C Breach</h3>
+                <p class="log-text">The blast doors in Sector C have been breached. The tall man was seen on the cameras just before the feed cut out. Evacuation is impossible.</p>
+                <div class="img-placeholder">
+                    <img data-src="Game Screenshots/s8.jpeg" class="lazy-img" alt="Corridor">
+                </div>
+            </div>
+        </div>
+
+        <h2 style="color: #fff; margin-top: 40px;">Emergency Broadcast Frequency</h2>
+        <div class="snippet-box">
+            <span id="copy-text" style="color: #ff8800; font-family: monospace; font-size: 18px;">104.5 FM - ENCRYPTED</span>
+            <button id="copy-btn" class="copy-btn">Copy</button>
+        </div>
+
+        <h2 style="color: #fff;">Submit Anomaly Report</h2>
+        <form id="report-form" class="report-form">
+            <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 15px; background: #000; color: #fff; border: 1px solid #330000; box-sizing: border-box;">
+            <textarea placeholder="Describe the anomaly..." required style="width: 100%; padding: 10px; height: 100px; margin-bottom: 15px; background: #000; color: #fff; border: 1px solid #330000; box-sizing: border-box;"></textarea>
+            <button type="submit" id="submit-btn" class="submit-btn">Submit Report</button>
+        </form>
+    </div>
+
+    <footer style="text-align: center; color: #555; padding: 20px; font-family: monospace;">
+        <p>DEAD SIGNAL © 2026. jQuery Assignment Showcase.</p>
+    </footer>
+
+    <div id="toast-container"></div>
+
+    <script src="js/devblog.js"></script>
+</body>
+</html>
